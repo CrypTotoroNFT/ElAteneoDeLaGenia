@@ -3,6 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#35B57A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="La Genia">
+<link rel="apple-touch-icon" href="./la_genia_icon.png">
+<link rel="manifest" href="./manifest.json">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -1013,6 +1019,15 @@ class Component extends DCLogic {
       onRotatePrecept: () => this.rotatePrecept(),
     };
   }
+}
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then(reg => console.log('[PWA] Service Worker registrado con éxito:', reg.scope))
+      .catch(err => console.error('[PWA] Error registrando Service Worker:', err));
+  });
 }
 </script>
 </body>
