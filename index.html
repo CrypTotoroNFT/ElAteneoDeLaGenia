@@ -326,7 +326,7 @@
     <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:5px">
       <sc-for list="{{ cells }}" as="c" hint-placeholder-count="35">
         <button onClick="{{ c.onClick }}" title="{{ c.title }}" style="{{ c.style }}">
-          <span style="position:relative;z-index:2;text-shadow:-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff">{{ c.num }}</span>
+          <span style="position:relative;z-index:2">{{ c.num }}</span>
           <sc-for list="{{ c.paws }}" as="paw" hint-placeholder-count="0">{{ paw.el }}</sc-for>
         </button>
       </sc-for>
@@ -463,7 +463,7 @@ class Component extends DCLogic {
 
   dogs = [
     {id:"kilinito",  name:"El Kilinito",   sub:"Optimista y Bonachón",           ini:"K", bg:"#EAE4D6", fg:"#8A7B53", mark:{corner:'tl', color:'#161616'}, img:"kilinito.png", breed:"Lhasa Apso", weight:"10 kg", desc:"Un Lhasa Apso de pelo corto carismático y entrador. Siempre moviendo la cola y feliz."},
-    {id:"compinchon",name:"El Compinchón", sub:"Territorial y Gruñón",           ini:"C", bg:"#D9D2BE", fg:"#7E7048", mark:{corner:'tr', color:'#F0C75A'}, img:"compinchon.png", breed:"Lhasa Apso", weight:"9 kg", desc:"El hermano de Kilinito. Un Lhasa Apso de carácter territorial y sumamente gruñón, con marcados aires de superioridad. Protege celosamente su tesoro: una hoja seca de un árbol."},
+    {id:"compinchon",name:"El Compinchón", sub:"Territorial y Gruñón",           ini:"C", bg:"#D9D2BE", fg:"#7E7048", mark:{corner:'tr', color:'#E27E3B'}, img:"compinchon.png", breed:"Lhasa Apso", weight:"9 kg", desc:"El hermano de Kilinito. Un Lhasa Apso de carácter territorial y sumamente gruñón, con marcados aires de superioridad. Protege celosamente su tesoro: una hoja seca de un árbol."},
     {id:"yunita",    name:"Yunita",        sub:"Hambrienta y Comunacha",         ini:"Y", bg:"#7A5230", fg:"#F3E7D6", mark:{corner:'bl', color:'#8A5A2B'}, img:"yunita.png", breed:"?", weight:"33 kg", desc:"Una perra marrón atlética, explosiva y veloz. Posee un fuerte porte de cazadora y un apetito insaciable."},
     {id:"ariecita",  name:"Ariecita",      sub:"Majestuosa y Tiradora",          ini:"A", bg:"#DCE3DE", fg:"#5E7064", mark:{corner:'br', color:'#EAF1EC'}, img:"ariecita.png", breed:"Ovejera Suiza", weight:"36 kg", desc:"Una ovejera suiza majestuosa de pelo largo blanco. Suele tironear mucho cuando sale a pasear, imponiendo su elegante presencia."},
   ];
