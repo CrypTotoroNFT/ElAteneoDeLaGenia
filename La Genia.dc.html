@@ -326,7 +326,7 @@
     <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:5px">
       <sc-for list="{{ cells }}" as="c" hint-placeholder-count="35">
         <button onClick="{{ c.onClick }}" title="{{ c.title }}" style="{{ c.style }}">
-          <span style="position:relative;z-index:2">{{ c.num }}</span>
+          <span style="position:relative;z-index:2;text-shadow:-1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff">{{ c.num }}</span>
           <sc-for list="{{ c.paws }}" as="paw" hint-placeholder-count="0">{{ paw.el }}</sc-for>
         </button>
       </sc-for>
