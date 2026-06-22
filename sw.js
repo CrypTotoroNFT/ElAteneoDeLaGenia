@@ -1,4 +1,4 @@
-const CACHE_NAME = 'la-genia-cache-v2';
+const CACHE_NAME = 'la-genia-cache-v3';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -18,13 +18,18 @@ const ASSETS_TO_CACHE = [
   './genia_walk.png'
 ];
 
-// Install Event - Pre-cache all static assets
+// Install Event - Pre-cache all static assets (Robust caching)
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
         console.log('[Service Worker] Pre-caching offline assets');
-        return cache.addAll(ASSETS_TO_CACHE);
+        const cachePromises = ASSETS_TO_CACHE.map((asset) => {
+          return cache.add(asset).catch((err) => {
+            console.warn(`[Service Worker] Failed to cache: ${asset}`, err);
+          });
+        });
+        return Promise.all(cachePromises);
       })
       .then(() => self.skipWaiting())
   );
